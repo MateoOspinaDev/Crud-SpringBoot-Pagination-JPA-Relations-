@@ -1,11 +1,9 @@
-package Controller;
+package com.basic.crud.Controller;
 
-import Model.Student;
-import Service.StudentService;
+import com.basic.crud.Model.Student;
+import com.basic.crud.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

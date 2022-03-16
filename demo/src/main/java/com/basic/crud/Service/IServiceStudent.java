@@ -1,6 +1,6 @@
-package Service;
+package com.basic.crud.Service;
 
-import Model.Student;
+import com.basic.crud.Model.Student;
 
 public interface IServiceStudent {
     public Student saveStudent(Student student);

@@ -1,7 +1,7 @@
-package Service;
+package com.basic.crud.Service;
 
-import Model.Student;
-import Repository.IstudentRepository;
+import com.basic.crud.Model.Student;
+import com.basic.crud.Repository.IstudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,8 +15,10 @@ public class StudentService {
     @Autowired
     private IstudentRepository istudentRepository;
 
-    public Student saveStudent(Student student){
-        if(student.getId()!=null) istudentRepository.save(student);
+    public Student saveStudent (Student student){
+        if (student.getId() == null){
+            return istudentRepository.save(student);
+        }
         return null;
     }
 

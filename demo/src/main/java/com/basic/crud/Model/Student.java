@@ -1,4 +1,4 @@
-package Model;
+package com.basic.crud.Model;
 
 import lombok.Data;
 import javax.persistence.*;
