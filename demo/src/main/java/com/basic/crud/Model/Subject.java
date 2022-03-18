@@ -10,8 +10,8 @@ import java.util.Set;
 
 @Entity
 @Data
-@Table(name = "Subjects")
-public class Subjects {
+@Table(name = "Subject")
+public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

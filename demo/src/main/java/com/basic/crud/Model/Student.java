@@ -25,6 +25,9 @@ public class Student {
     @ManyToMany(mappedBy = "enrolledStudents")//Nombre de la variable que está referenciando en la otra clase
     private Set<Subject> subjects = new HashSet<>();
 
+    @Embedded
+    private ParentStudent parentStudent;
+
 
 }
 

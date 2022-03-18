@@ -1,7 +1,7 @@
 package com.basic.crud.Controller;
 
 import com.basic.crud.Model.Student;
-import com.basic.crud.Service.StudentService;
+import com.basic.crud.IServiceImp.IStudentServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -16,11 +16,11 @@ import java.util.Optional;
 public class StudentController {
 
     @Autowired
-    private StudentService studentService;
+    private IStudentServiceImp IStudentServiceImp;
 
     @PostMapping
     public ResponseEntity<Student> saveStudent (@Valid @RequestBody Student student){
-        return ResponseEntity.status(HttpStatus.CREATED).body(studentService.saveStudent(student));
+        return ResponseEntity.status(HttpStatus.CREATED).body(IStudentServiceImp.saveStudent(student));
     }
 
 
@@ -30,22 +30,22 @@ public class StudentController {
             @RequestParam(required = false, defaultValue = "10") Integer size,
             @RequestParam(required = false, defaultValue = "false") Boolean enablePagination
     ){
-        return ResponseEntity.ok(studentService.getAllStudent(page, size, enablePagination));
+        return ResponseEntity.ok(IStudentServiceImp.getAllStudent(page, size, enablePagination));
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity deleteStudent(@PathVariable ("id") Long id){
-        studentService.deleteStudent(id);
-        return ResponseEntity.ok(!studentService.existById(id));
+        IStudentServiceImp.deleteStudent(id);
+        return ResponseEntity.ok(!IStudentServiceImp.existById(id));
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Student>> findStudentById(@PathVariable ("id") Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(studentService.findById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(IStudentServiceImp.findById(id));
     }
 
     @PutMapping
     public ResponseEntity<Student> editStudent (@Valid @RequestBody Student student){
-        return ResponseEntity.status(HttpStatus.CREATED).body(studentService.editStudent(student));
+        return ResponseEntity.status(HttpStatus.CREATED).body(IStudentServiceImp.editStudent(student));
     }
 }
